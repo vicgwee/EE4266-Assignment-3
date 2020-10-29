@@ -1,7 +1,6 @@
-function z = findTemplateFD(image_name)
-%FINDTEMPLATEFD Returns z, the Fourier Coefficients of the template in
-%image_name
-img=imread(image_name);
+function z = findTemplateFD(img)
+%FINDTEMPLATEFD Returns z, the Fourier Coefficients of the template in img
+
 %transform to gray image
 if ndims(img) == 3
     img=rgb2gray(img);

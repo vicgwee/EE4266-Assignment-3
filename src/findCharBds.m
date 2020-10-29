@@ -1,6 +1,5 @@
-function Bd_chars = findCharBds(image_name)
+function Bd_chars = findCharBds(img)
 
-img=imread(image_name);
 %transform to gray image
 if ndims(img) == 3
     img=rgb2gray(img);
