@@ -8,7 +8,7 @@ z_template = {z_2, z_C};
 
 %%========================================================================%
 %PREPROCESS TEMPLATE FOURIER DESCRIPTORS
-z_template = makeInvariant(z_template);
+z_template_inv = makeInvariant(z_template);
 
 %=========================================================================%
 %FIND CHARACTER BOUNDARIES IN IMAGE
@@ -24,21 +24,13 @@ z_chars = {};
 for i=1:size(Bd)
     z_chars{end+1} = frdescp(Bd{i});
 end
-z_chars = makeInvariant(z_chars);
+z_chars_inv = makeInvariant(z_chars);
 
 %=========================================================================%
 %COMPARE FOURIER DESCRIPTORS OF CHARACTERS WITH TEMPLATES
-z_matches = matchFDs(z_template,z_chars);
+Bd_matches = matchFDs(z_template_inv,z_chars_inv, Bd);
 
 %=========================================================================%
 %DISPLAY BOUNDARIES OF MATCHING CHARACTERS ON IMAGE
-
-%percentage of fourier descriptors used to recover image
-usedPercent=0.15;
-
-Bd_matches = {};
-for i=1:size(z_matches, 2)
-    Bd_matches{end+1} = ifrdescp(z_matches{i},round(size(z_matches{i},1)*usedPercent));
-end
 
 showBdsOnImg(Bd_matches, img_a4);
