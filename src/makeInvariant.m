@@ -4,12 +4,12 @@ function z_inv = makeInvariant(z)
 z_inv = {};
 for i=1:size(z,2)
     z_ = z{i};
-    %Translation Invariance by ignoring first coefficient
-    z_ = z_(2:end);
-    %Scale Invariance by Normalising
-    z_ = z_/z_(1);
+    %Translation Invariance by ignoring DC component
+    z_(end/2 +1) = 0;
     %Rotation Invariance by taking Magnitude
-    z_inv{end+1} = abs(z_);
+    z_ = abs(z_);
+    %Scale Invariance by Normalising
+    z_inv{end+1} = z_/z_(end/2);
 end
 end
 
