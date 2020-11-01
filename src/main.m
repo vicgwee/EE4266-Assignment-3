@@ -16,7 +16,7 @@ img_a4 = imread('a4.bmp');
 Bd = findCharBds(img_a4);
 
 if 0
-    showBdsOnImg(Bd, img_a4);
+    showBdsOnImg(Bd, img_a4, 'All Char Bds');
 end
 
 %FIND FOURIER DESCRIPTORS OF EACH CHARACTER
@@ -33,4 +33,4 @@ Bd_matches = matchFDs(z_template_inv,z_chars_inv, Bd);
 %=========================================================================%
 %DISPLAY BOUNDARIES OF MATCHING CHARACTERS ON IMAGE
 
-showBdsOnImg(Bd_matches, img_a4);
+%showBdsOnImg(Bd_matches, img_a4, 'Matches');
