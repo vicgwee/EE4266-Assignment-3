@@ -1,5 +1,6 @@
 function showBdsOnImg(Bd, img, txt)
 %SHOWBDS Displays boundaries Bd on image image_name
+    figure
     title1=sprintf(strcat(txt, ', %d boundaries'),length(Bd));
     imshow(img),title(title1); hold on;
     colors=['b' 'g' 'r' 'c' 'm' 'y'];
