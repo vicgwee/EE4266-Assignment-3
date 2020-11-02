@@ -9,7 +9,7 @@ z_template = {z_2, z_C};
 
 %PREPROCESS TEMPLATE FOURIER DESCRIPTORS
 z_template_inv = makeInvariant(z_template);
-plotFDs(z_template_inv, 'Template Invariant');
+
 
 %%========================================================================%
 %ROTATION
@@ -22,7 +22,7 @@ z_template_r = {z_2, z_C};
 
 %PREPROCESS TEMPLATE FOURIER DESCRIPTORS
 z_template_inv_r = makeInvariant(z_template_r);
-plotFDs(z_template_inv_r, 'Template Invariant_Rotated');
+
 
 %%========================================================================%
 %TRANSLATION
@@ -35,7 +35,7 @@ z_template_t = {z_2, z_C};
 
 %PREPROCESS TEMPLATE FOURIER DESCRIPTORS
 z_template_inv_t = makeInvariant(z_template_t);
-plotFDs(z_template_inv_t, 'Template Invariant_Translated');
+
 
 %%========================================================================%
 %SCALING
@@ -48,4 +48,29 @@ z_template_s = {z_2, z_C};
 
 %PREPROCESS TEMPLATE FOURIER DESCRIPTORS
 z_template_inv_s = makeInvariant(z_template_s);
-plotFDs(z_template_inv_s, 'Template Invariant_Scaled');
+
+
+%VISUALISE DIFFERENCES
+if 0
+    plotFDs(z_template_inv, 'Template Invariant');
+    plotFDs(z_template_inv_r, 'Template Invariant_Rotated');
+    plotFDs(z_template_inv_t, 'Template Invariant_Translated');
+    plotFDs(z_template_inv_s, 'Template Invariant_Scaled');
+end
+
+%FIND RMSE
+n_coefs = 10;
+
+z_tests = {z_template_inv_r, z_template_inv_t, z_template_inv_s};
+
+results = (0)
+for i=1:3
+    z_test = z_tests{i};
+    for j=1:2
+        coefs_test = findMiddleCoefs(abs(z_test{j}),n_coefs);
+        coefs_temp = findMiddleCoefs(abs(z_template_inv{j}),n_coefs);
+        results(i,j)= immse(coefs_test,coefs_temp);
+    end
+end
+
+results
