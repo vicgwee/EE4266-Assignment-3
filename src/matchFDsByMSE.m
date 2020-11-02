@@ -15,7 +15,7 @@ end
 Bd_matches = {};
 for x = 1:(length(mse)/2)
     %MSE list has 112 elements. Set threshold as mse_threshold
-    if mse{x}<mse_threshold || mse{x+56}<mse_threshold
+    if mse{x}<mse_threshold || mse{x+length(mse)/2}<mse_threshold
         Bd_matches(end+1)=Bd_chars(x);
     end
 end

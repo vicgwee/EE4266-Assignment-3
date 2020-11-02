@@ -18,7 +18,7 @@ Bd_matches = {};
 for x = 1:(length(corr)/2)
     %corr list has 112 elements. Set threshold as ___
     
-    if corr{x}>corr_threshold || corr{x+56}>corr_threshold
+    if corr{x}>corr_threshold || corr{x+length(corr)/2}>corr_threshold
         Bd_matches(end+1)=Bd_chars(x);
     end
 end
