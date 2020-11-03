@@ -51,7 +51,7 @@ z_template_inv_s = makeInvariant(z_template_s);
 
 
 %VISUALISE DIFFERENCES
-if 0
+if 1
     plotFDs(z_template_inv, 'Template Invariant');
     plotFDs(z_template_inv_r, 'Template Invariant_Rotated');
     plotFDs(z_template_inv_t, 'Template Invariant_Translated');

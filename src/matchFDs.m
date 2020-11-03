@@ -1,11 +1,12 @@
 function Bd_matches = matchFDs(z_template, z_chars, Bd_chars)
-corr_threshold = 0.95;
-n_coefs = 8;
+corr_threshold = 0.97;
+n_coefs = 50;
+
 corr={};
-for i = 1:length(z_chars)
-    coefs_c = findMiddleCoefs(z_chars{i}, n_coefs);
-    for j = 1:length(z_template)
+for j = 1:length(z_template)
+    for i = 1:length(z_chars)
         %find correlation matrix
+        coefs_c = findMiddleCoefs(z_chars{i}, n_coefs);
         coefs_t = findMiddleCoefs(z_template{j}, n_coefs);
         R = corrcoef(coefs_t, coefs_c);
         %assign correlation coefficient between template and chars to list
@@ -13,6 +14,7 @@ for i = 1:length(z_chars)
     end
 end   
 
+corr
 %evaluate correlation coefficient between template and chars
 Bd_matches = {};
 for x = 1:(length(corr)/2)

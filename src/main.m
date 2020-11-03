@@ -5,11 +5,11 @@ img_C = imread('Template_C.bmp');
 z_2 = findTemplateFD(img_2);
 z_C = findTemplateFD(img_C);
 z_template = {z_2, z_C};
-plotFDs(z_template, 'Template');
+%plotFDs(z_template, 'Template');
 %%========================================================================%
 %PREPROCESS TEMPLATE FOURIER DESCRIPTORS
 z_template_inv = makeInvariant(z_template);
-plotFDs(z_template_inv, 'Template Invariant');
+%plotFDs(z_template_inv, 'Template Invariant');
 %=========================================================================%
 %FIND CHARACTER BOUNDARIES IN IMAGE
 img_a4 = imread('a4.bmp');
@@ -34,4 +34,4 @@ Bd_matches = matchFDs(z_template_inv,z_chars_inv, Bd);
 %=========================================================================%
 %DISPLAY BOUNDARIES OF MATCHING CHARACTERS ON IMAGE
 
-%showBdsOnImg(Bd_matches, img_a4, 'Matches');
+showBdsOnImg(Bd_matches, img_a4, 'Matches');
