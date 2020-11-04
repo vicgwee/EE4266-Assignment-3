@@ -12,7 +12,6 @@ for j = 1:length(z_template)
     end
 end   
 
-corr
 %evaluate correlation coefficient between template and chars
 Bd_matches = {};
 for x = 1:(length(corr)/2)

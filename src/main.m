@@ -15,7 +15,7 @@ plotFDs(z_template_inv, 'Template Invariant');
 img_a4 = imread('a4.bmp');
 Bd = findCharBds(img_a4);
 
-%showBdsOnImg(Bd, img_a4, 'All Char Bds');
+%showBdsOnImg(Bd, img_a4, 'All Char Bds', 0);
 
 
 %FIND FOURIER DESCRIPTORS OF EACH CHARACTER
@@ -34,4 +34,4 @@ Bd_matches = matchFDsByMSE(z_template_inv,z_chars_inv, Bd, 0.0038, 20);
 %=========================================================================%
 %DISPLAY BOUNDARIES OF MATCHING CHARACTERS ON IMAGE
 
-showBdsOnImg(Bd_matches, img_a4, 'Matches');
+showBdsOnImg(Bd_matches, img_a4, 'Matches', 0);

@@ -10,7 +10,6 @@ for j = 1:length(z_template)
     end
 end   
 %evaluate MSE between template and chars
-mse
 Bd_matches = {};
 for x = 1:(length(mse)/2)
     %MSE list has 112 elements. Set threshold as mse_threshold
