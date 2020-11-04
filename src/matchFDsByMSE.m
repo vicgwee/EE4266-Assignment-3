@@ -1,6 +1,4 @@
-function Bd_matches = matchFDsByMSE(z_template, z_chars, Bd_chars)
-mse_threshold = 0.0035;
-n_coefs = 20;
+function Bd_matches = matchFDsByMSE(z_template, z_chars, Bd_chars, mse_threshold, n_coefs)
 
 mse={};
 for j = 1:length(z_template)
